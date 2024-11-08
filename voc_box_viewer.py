@@ -29,23 +29,22 @@ Changelog:
     You may need this: pip install --upgrade image pillow lxml numpy
 """
 
-import time
+import colorsys
+import logging
 import os
+import platform
 import random
 import shutil
-import platform
-import logging
-import colorsys
-
+import time
 import tkinter as tk
 from tkinter.filedialog import askdirectory
-from PIL import Image, ImageTk, ImageFont, ImageDraw  # pillow module
-import cv2
-from lxml import etree
-import numpy as np
-import matplotlib.font_manager as fm  # to create font
-from natsort import natsorted
 
+import cv2
+import matplotlib.font_manager as fm  # to create font
+import numpy as np
+from lxml import etree
+from natsort import natsorted
+from PIL import Image, ImageDraw, ImageFont, ImageTk  # pillow module
 
 __author__ = "Zhuo Zhang"
 __copyright__ = "Copyright 2017-2023, Zhuo Zhang"
@@ -647,9 +646,19 @@ def example5():
     app.mainloop()
 
 
+def example6():
+    dir = askdirectory()
+    app = VOCViewer(
+        im_dir=f"{dir}/JPEGImages",  # image directory
+        anno_dir=f"{dir}/Annotations",  # XML directory
+    )
+    app.mainloop()
+
+
 if __name__ == "__main__":
-    example1()
+    # example1()
     # example2()
     # example3()
     # example4()
     # example5()
+    example6()

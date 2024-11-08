@@ -4,3 +4,4 @@ screenshot.png
 
 # JetBrains IDEs
 .idea/
+.venv
